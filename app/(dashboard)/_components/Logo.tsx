@@ -1,12 +1,20 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import React from "react";
 
 const Logo = () => {
   return (
-    <div>
-      <Image src="/logo.png" alt="SkillUp Africa Logo" width={80} height={80} />
-    </div>
+    <Link href={"/"}>
+      <div className="flex justify-center items-center flex-col">
+        <Image
+          src="/logo.png"
+          alt="SkillUp Africa Logo"
+          width={80}
+          height={80}
+        />
+      </div>
+    </Link>
   );
 };
 
