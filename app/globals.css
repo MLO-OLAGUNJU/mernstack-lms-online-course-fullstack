@@ -72,17 +72,18 @@ body,
   }
 }
 
-/* @layer base {
+@layer base {
   * {
-    @apply border-border;
+    border: 1px solid var(--border);
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: var(--background);
+    color: var(--foreground);
   }
-} */
+}
 
-* {
+/* * {
   border: var(--border);
   background: var(--background);
   color: var(--foreground);
-}
+} */
