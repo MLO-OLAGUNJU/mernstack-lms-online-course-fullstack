@@ -17,10 +17,15 @@ const NavBarRoutes = () => {
   return (
     <div className="flex items-center gap-x-5 ml-auto">
       {isTeacherPage || isPlayerPage ? (
-        <Button size="sm" variant="ghost">
-          <LogOut className="h-4 w-4 mr-2" />
-          Exit
-        </Button>
+        <Link
+          href={"/"}
+          className="border-[#3857A1] rounded-md border-1 bg-white border-solid"
+        >
+          <Button size="sm" variant="ghost">
+            <LogOut className="h-4 w-4 mr-2" />
+            Exit
+          </Button>
+        </Link>
       ) : (
         <Link
           href={"/teacher/courses"}
