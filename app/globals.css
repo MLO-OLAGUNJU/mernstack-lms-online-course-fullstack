@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* #d0deff lighter */
+/* #3857A1 deeper */
+
 html,
 body,
 :root {
