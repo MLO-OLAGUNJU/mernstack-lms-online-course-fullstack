@@ -32,7 +32,18 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
 
   const completionText = `(${completedFields} / ${totalFields})`;
 
-  return <div>Course Id: {params.courseId}</div>;
+  return (
+    <div className="p-6">
+      <div className="flex items-center justify-between">
+        <div className=" flex flex-col gap-y-2">
+          <h1 className="text-2xl font-bold">Course setup</h1>
+          <span>
+            Complete all fields <span>{completionText}</span>
+          </span>
+        </div>
+      </div>
+    </div>
+  );
 };
 
 export default CourseIdPage;
