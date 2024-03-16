@@ -7,3 +7,17 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+model Course {
+  id              String   @id @default(uuid())
+  userId          String
+  title           String   @db.Text
+  description     String?  @db.Text
+  imageUrl        String?  @db.Text
+  price           Float?
+  isPublished     Boolean  @default(false) 
+
+  categoryId      String?
+
+  
+}
