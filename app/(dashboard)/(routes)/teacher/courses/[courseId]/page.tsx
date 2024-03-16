@@ -49,7 +49,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
         <div>
           <div className="flex items-center gap-x-2">
             <IconBadges
-              size={"sm"}
+              size={"default"}
               variant={"default"}
               icon={LayoutDashboard}
             />
