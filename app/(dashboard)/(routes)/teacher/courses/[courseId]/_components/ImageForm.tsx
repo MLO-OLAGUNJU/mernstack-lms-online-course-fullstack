@@ -5,20 +5,11 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormMessage,
-} from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { ImageIcon, Pencil, Plus, PlusCircle } from "lucide-react";
+import { ImageIcon, Plus, PlusCircle } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
-import { Textarea } from "@/components/ui/textarea";
 import Image from "next/image";
 import { FileUpload } from "@/components/fileUpload";
 
@@ -98,7 +89,7 @@ const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
         ))}
       {isEditing && (
         <>
-          <div>
+          <div className="relative aspect-video mt-2 custom-upload-button">
             <FileUpload
               endpoint="couseImage"
               onChange={(url) => {
