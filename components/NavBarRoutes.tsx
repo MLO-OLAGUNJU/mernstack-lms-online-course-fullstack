@@ -1,11 +1,13 @@
 "use client";
 
 import { UserButton } from "@clerk/nextjs";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import React from "react";
 import { Button } from "./ui/button";
 import { LogOut } from "lucide-react";
 import Link from "next/link";
+import { TiArrowSortedDown } from "react-icons/ti";
+import { GiTeacher } from "react-icons/gi";
 
 const NavBarRoutes = () => {
   const pathname = usePathname();
@@ -17,11 +19,11 @@ const NavBarRoutes = () => {
       {isTeacherPage || isPlayerPage ? (
         <Link
           href={"/"}
-          className="rounded-md border-1 bg-[#dedede] border-solid"
+          className="mr-[20px] rounded-md border-1 bg-[#dedede] border-solid"
         >
           <Button size="sm" variant="ghost">
             <LogOut className="h-4 w-4 mr-2" />
-            Exit
+            Exit Teacher mode
           </Button>
         </Link>
       ) : (
@@ -34,8 +36,15 @@ const NavBarRoutes = () => {
           </Button>
         </Link>
       )}
-      <div className="p-1 bg-[#dedede] rounded-full">
-        <UserButton afterSignOutUrl="/" />
+
+      <div className="flex flex-col items-center justify-center">
+        <div className="p-1 bg-[#dedede] rounded-full">
+          <UserButton afterSignOutUrl="/" />
+        </div>
+        <div className="flex flex-row items-center justify-center">
+          <span className="text-sm">Me</span>
+          <TiArrowSortedDown />
+        </div>
       </div>
     </div>
   );
