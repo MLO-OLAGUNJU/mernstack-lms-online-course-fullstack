@@ -6,7 +6,7 @@ import React from "react";
 const Logo = () => {
   return (
     <Link href={"/"}>
-      <div className="flex justify-center items-center flex-col">
+      <div className=" h-[35px] flex justify-center items-center flex-col">
         <Image
           src="/logo.png"
           alt="SkillUp Africa Logo"
