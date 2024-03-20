@@ -42,7 +42,7 @@ const SideBarItem = ({ icon: Icon, label, href }: SideBarItemProps) => {
 
       <div
         className={cn(
-          "ml-auto opacity-0 border-2 border-solid border-red h-full transition-all",
+          "ml-auto opacity-0 border-2 border-solid border-[#3857A1] h-full transition-all",
           isActive && "opacity-100"
         )}
       />

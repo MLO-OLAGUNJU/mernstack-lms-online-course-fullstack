@@ -17,7 +17,7 @@ const NavBarRoutes = () => {
       {isTeacherPage || isPlayerPage ? (
         <Link
           href={"/"}
-          className="border-[#3857A1] rounded-md border-1 bg-white border-solid"
+          className="rounded-md border-1 bg-[#dedede] border-solid"
         >
           <Button size="sm" variant="ghost">
             <LogOut className="h-4 w-4 mr-2" />
@@ -27,14 +27,16 @@ const NavBarRoutes = () => {
       ) : (
         <Link
           href={"/teacher/courses"}
-          className="border-[#3857A1] rounded-md border-1 bg-white border-solid"
+          className="rounded-md border-1 bg-[#dedede] border-solid"
         >
           <Button size="sm" variant="ghost">
             Teacher mode
           </Button>
         </Link>
       )}
-      <UserButton afterSignOutUrl="/" />
+      <div className="p-1 bg-[#dedede] rounded-full">
+        <UserButton afterSignOutUrl="/" />
+      </div>
     </div>
   );
 };
