@@ -67,7 +67,7 @@ const TitleForm = ({ initialData, courseId }: TitleFormProps) => {
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit title
+              <span className="md:hidden hidden lg:flex">Edit title</span>
             </>
           )}
         </Button>

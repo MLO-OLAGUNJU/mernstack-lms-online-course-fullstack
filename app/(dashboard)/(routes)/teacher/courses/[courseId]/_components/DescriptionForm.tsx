@@ -67,7 +67,7 @@ const DescriptionForm = ({ initialData, courseId }: DescriptionFormProps) => {
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              Edit description
+              <span className="md:hidden hidden lg:flex">Edit description</span>
             </>
           )}
         </Button>

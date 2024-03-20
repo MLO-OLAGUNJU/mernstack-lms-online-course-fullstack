@@ -4,7 +4,7 @@ import { Course } from "@prisma/client";
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
-import { ImageIcon, Plus, PlusCircle } from "lucide-react";
+import { ImageIcon, Pencil, PlusCircle } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -51,13 +51,15 @@ const ImageForm = ({ initialData, courseId }: ImageFormProps) => {
           {!isEditing && !initialData.imageUrl && (
             <>
               <PlusCircle className="h-4 w-4 mr-2" />
-              Upload an image
+              <span className="md:hidden lg:flex">Upload an image</span>
             </>
           )}
           {!isEditing && initialData.imageUrl && (
             <>
-              <Plus className="h-4 w-4 mr-2" />
-              Change uploaded image
+              <Pencil className="h-4 w-4 mr-2" />
+              <span className="md:hidden hidden lg:flex">
+                Change uploaded image
+              </span>
             </>
           )}
         </Button>

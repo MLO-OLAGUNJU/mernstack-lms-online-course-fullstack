@@ -19,11 +19,11 @@ const NavBarRoutes = () => {
       {isTeacherPage || isPlayerPage ? (
         <Link
           href={"/"}
-          className="mr-[20px] rounded-md border-1 bg-[#dedede] border-solid"
+          className="mr-[10px] rounded-md border-1 bg-[#dedede] border-solid"
         >
           <Button size="sm" variant="ghost">
             <LogOut className="h-4 w-4 mr-2" />
-            Exit Teacher mode
+            <span className="md:hidden hidden lg:flex">Exit Teacher mode</span>
           </Button>
         </Link>
       ) : (
