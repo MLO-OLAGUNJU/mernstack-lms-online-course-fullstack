@@ -105,11 +105,7 @@ export const CategoryForm = ({
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Textarea
-                        disabled={isSubmitting}
-                        placeholder="e.g. This comprehensive course equips you with the essential skills and knowledge to kickstart your software engineering career...."
-                        {...field}
-                      />
+                      <Combobox options={options} {...field} />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
