@@ -51,7 +51,12 @@ const AttachemntsForm = ({ initialData, courseId }: AttachemntsFormProps) => {
           {!isEditing && (
             <>
               <PlusCircle className="h-4 w-4 mr-2" />
-              <span className="md:hidden lg:flex">Upload file</span>
+              {initialData.attachments.length < 0 && (
+                <span className="md:hidden lg:flex">Upload file</span>
+              )}
+              {initialData.attachments.length > 0 && (
+                <span className="md:hidden lg:flex">Upload more file</span>
+              )}
             </>
           )}
         </Button>
@@ -90,7 +95,7 @@ const AttachemntsForm = ({ initialData, courseId }: AttachemntsFormProps) => {
               }}
             />
             <div className="text-sm text-muted-foreground mt-4">
-              Add annything your students might need to complete the cours.{" "}
+              Add anything your students might need to complete the cours.{" "}
             </div>
           </div>
         </>
