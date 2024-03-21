@@ -1,9 +1,14 @@
 "use client";
-import React, { useState } from "react";
-import { Course } from "@prisma/client";
+
 import * as z from "zod";
+import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { Pencil } from "lucide-react";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+import { Course } from "@prisma/client";
 
 import {
   Form,
@@ -13,37 +18,36 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { Pencil } from "lucide-react";
-import toast from "react-hot-toast";
-import axios from "axios";
-import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Textarea } from "@/components/ui/textarea";
+import { Combobox } from "@/components/ui/combobox";
 
 interface CategoryFormProps {
   initialData: Course;
   courseId: string;
-  options: {
-    label: string;
-    value: string;
-  };
+  options: { label: string; value: string }[];
 }
 
 const formSchema = z.object({
   categoryId: z.string().min(1),
 });
 
-const CategoryForm = ({ initialData, courseId }: CategoryFormProps) => {
+export const CategoryForm = ({
+  initialData,
+  courseId,
+  options,
+}: CategoryFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
+
+  const toggleEdit = () => setIsEditing((current) => !current);
 
   const router = useRouter();
 
-  const toggleEdit = () => {
-    setIsEditing((current) => !current);
-  };
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { categoryId: initialData?.categoryId || "" },
+    defaultValues: {
+      categoryId: initialData?.categoryId || "",
+    },
   });
 
   const { isSubmitting, isValid } = form.formState;
@@ -54,10 +58,14 @@ const CategoryForm = ({ initialData, courseId }: CategoryFormProps) => {
       toast.success("Course updated successfully");
       toggleEdit();
       router.refresh();
-    } catch (error) {
+    } catch {
       toast.error("Something went wrong");
     }
   };
+
+  const selectedOption = options.find(
+    (option) => option.value === initialData.categoryId
+  );
 
   return (
     <div className="mt-6 border bg-[#d0deff] rounded-md p-4">
@@ -78,10 +86,10 @@ const CategoryForm = ({ initialData, courseId }: CategoryFormProps) => {
         <p
           className={cn(
             "text-sm mt-2",
-            !initialData.description && "text-slate-500 italic"
+            !initialData.categoryId && "text-slate-500 italic"
           )}
         >
-          {initialData.description || "No description"}
+          {initialData.categoryId || "No description"}
         </p>
       )}
       {isEditing && (
@@ -119,5 +127,3 @@ const CategoryForm = ({ initialData, courseId }: CategoryFormProps) => {
     </div>
   );
 };
-
-export default CategoryForm;
