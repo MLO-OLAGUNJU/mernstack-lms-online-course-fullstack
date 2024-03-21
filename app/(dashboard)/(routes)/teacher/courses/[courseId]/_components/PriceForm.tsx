@@ -18,7 +18,6 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 import { formatPrice } from "@/lib/format";
 
@@ -76,7 +75,7 @@ const PriceForm = ({ initialData, courseId }: PriceFormProps) => {
         <p
           className={cn(
             "text-sm mt-2",
-            !initialData.price && "text-slate-500 italic"
+            !initialData.price && "text-slate-600 italic"
           )}
         >
           {initialData.price ? formatPrice(initialData.price) : "No price"}

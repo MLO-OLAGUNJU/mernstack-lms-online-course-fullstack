@@ -86,7 +86,7 @@ export const CategoryForm = ({
         <p
           className={cn(
             "text-sm mt-2",
-            !initialData.categoryId && "text-slate-500 italic"
+            !initialData.categoryId && "text-slate-600 italic"
           )}
         >
           {selectedOption?.label || "No category chosen"}
