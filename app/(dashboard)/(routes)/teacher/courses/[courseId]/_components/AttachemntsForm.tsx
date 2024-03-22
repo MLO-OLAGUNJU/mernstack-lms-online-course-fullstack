@@ -76,7 +76,9 @@ const AttachemntsForm = ({ initialData, courseId }: AttachemntsFormProps) => {
                   className="flex mt-5 items-center p-3 w-full bg-[#d0deff] border-[#3857A1] border text-[#3857A1] rounded-md"
                 >
                   <File className="h-4 w-4 mr-2 flex-shrink-0" />
-                  <p className="text-xs line-clamp-1">{attachment.name}</p>
+                  <p className="text-xs font-semibold text-blue-900 line-clamp-1">
+                    {attachment.name}
+                  </p>
                 </div>
               ))}
             </div>
