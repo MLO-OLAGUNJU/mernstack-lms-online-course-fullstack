@@ -42,6 +42,17 @@ const AttachemntsForm = ({ initialData, courseId }: AttachemntsFormProps) => {
     }
   };
 
+  const onDelete = async (id: string) => {
+    try {
+      setDeletingId(id);
+      await axios.delete(`/api/courses/${courseId}/attachments/${id}`);
+    } catch (error) {
+      toast.error("Something went wrong");
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
   return (
     <div className="mt-6 border bg-[#d0deff] rounded-md p-4">
       <div className=" font-medium flex items-center justify-between">
