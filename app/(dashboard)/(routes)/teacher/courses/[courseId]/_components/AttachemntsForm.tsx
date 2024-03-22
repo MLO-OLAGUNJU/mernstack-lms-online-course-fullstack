@@ -89,7 +89,7 @@ const AttachemntsForm = ({ initialData, courseId }: AttachemntsFormProps) => {
 
                   {deletingId !== attachment.id && (
                     <>
-                      <button className="ml-auto hover:opacity-75 transition">
+                      <button className="ml-auto hover:opacity-75 transition border-[1px] border-solid p-1 border-black rounded-full">
                         <X className="h-4 w-4" />
                       </button>
                     </>
