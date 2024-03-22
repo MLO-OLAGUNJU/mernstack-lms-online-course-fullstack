@@ -46,6 +46,8 @@ const AttachemntsForm = ({ initialData, courseId }: AttachemntsFormProps) => {
     try {
       setDeletingId(id);
       await axios.delete(`/api/courses/${courseId}/attachments/${id}`);
+      toast.success("Attachment deleted successfully");
+      router.refresh();
     } catch (error) {
       toast.error("Something went wrong");
     } finally {
@@ -100,7 +102,10 @@ const AttachemntsForm = ({ initialData, courseId }: AttachemntsFormProps) => {
 
                   {deletingId !== attachment.id && (
                     <>
-                      <button className="ml-auto hover:opacity-75 transition border-[1px] border-solid p-1 border-black rounded-full">
+                      <button
+                        onClick={() => onDelete(attachment.id)}
+                        className="ml-auto hover:opacity-75 transition border-[1px] border-solid p-1 border-black rounded-full"
+                      >
                         <X className="h-4 w-4" />
                       </button>
                     </>
