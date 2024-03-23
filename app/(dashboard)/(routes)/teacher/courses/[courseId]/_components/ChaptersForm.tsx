@@ -26,30 +26,31 @@ interface ChaptersFormProps {
 }
 
 const formSchema = z.object({
-  description: z.string().min(1, {
-    message: "Description is required",
-  }),
+  title: z.string().min(1),
 });
 
 const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
-  const [isEditing, setIsEditing] = useState(false);
+  const [isCreating, setIsCreating] = useState(false);
+  const [isUpdating, setIsUpdating] = useState(false);
 
   const router = useRouter();
 
-  const toggleEdit = () => {
-    setIsEditing((current) => !current);
+  const toggleCreating = () => {
+    setIsCreating((current) => !current);
   };
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { description: initialData?.description || "" },
+    defaultValues: {
+      title: "",
+    },
   });
 
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
-      await axios.patch(`/api/courses/${courseId}`, values);
-      toast.success("Course updated successfully");
+      await axios.post(`/api/courses/${courseId}/chapters`, values);
+      toast.success("Chapter created successfully");
       toggleEdit();
       router.refresh();
     } catch (error) {
