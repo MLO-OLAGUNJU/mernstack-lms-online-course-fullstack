@@ -19,6 +19,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Textarea } from "@/components/ui/textarea";
+import { Input } from "@/components/ui/input";
 
 interface ChaptersFormProps {
   initialData: Course;
@@ -96,9 +97,9 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
-                      <Textarea
+                      <Input
                         disabled={isSubmitting}
-                        placeholder="e.g. This comprehensive course equips you with the essential skills and knowledge to kickstart your software engineering career...."
+                        placeholder="e.g. Introduction to the course"
                         {...field}
                       />
                     </FormControl>
@@ -106,11 +107,9 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
                   </FormItem>
                 )}
               />
-              <div className="flex items-center gap-x-2">
-                <Button disabled={!isValid || isSubmitting} type="submit">
-                  Save
-                </Button>
-              </div>
+              <Button disabled={!isValid || isSubmitting} type="submit">
+                Create
+              </Button>
             </form>
           </Form>
         </>
