@@ -114,6 +114,18 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
           </Form>
         </>
       )}
+
+      {!isCreating && (
+        <>
+          <div>No chapters</div>
+        </>
+      )}
+
+      {!isCreating && (
+        <p className="text-xs text-muted-foreground mt-4">
+          Drag and drop to reorder the chapters
+        </p>
+      )}
     </div>
   );
 };
