@@ -51,7 +51,7 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
     try {
       await axios.post(`/api/courses/${courseId}/chapters`, values);
       toast.success("Chapter created successfully");
-      toggleEdit();
+      toggleCreating();
       router.refresh();
     } catch (error) {
       toast.error("Something went wrong");
@@ -62,7 +62,7 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
     <div className="mt-6 border bg-[#d0deff] rounded-md p-4">
       <div className=" font-medium flex items-center justify-between">
         Course description
-        <Button onClick={toggleEdit} variant={"ghost"} className="bg-white">
+        <Button onClick={toggleCreating} variant={"ghost"} className="bg-white">
           {isEditing ? (
             <>Cancel</>
           ) : (
