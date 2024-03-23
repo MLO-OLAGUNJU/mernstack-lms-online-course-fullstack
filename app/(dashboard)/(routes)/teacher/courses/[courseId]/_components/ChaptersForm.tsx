@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { Course } from "@prisma/client";
+import { Chapter, Course } from "@prisma/client";
 import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -18,11 +18,12 @@ import toast from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
-import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
 
 interface ChaptersFormProps {
-  initialData: Course;
+  initialData: Course & {
+    chapters: Chapter[];
+  };
   courseId: string;
 }
 
@@ -74,16 +75,7 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
           )}
         </Button>
       </div>
-      {!isCreating && (
-        <p
-          className={cn(
-            "text-sm mt-2",
-            !initialData.description && "text-slate-600 italic"
-          )}
-        >
-          {initialData.description || "No description"}
-        </p>
-      )}
+
       {isCreating && (
         <>
           <Form {...form}>
@@ -117,7 +109,14 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
 
       {!isCreating && (
         <>
-          <div>No chapters</div>
+          <div
+            className={cn(
+              "text-sm mt-2",
+              !initialData.chapters.length && "text-slate-500 italic"
+            )}
+          >
+            {!initialData.chapters.length && "No chapters"}
+          </div>
         </>
       )}
 
