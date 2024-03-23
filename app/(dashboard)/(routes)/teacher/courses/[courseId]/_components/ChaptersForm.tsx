@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { Pencil } from "lucide-react";
+import { Pencil, PlusCircle } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -63,11 +63,11 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
       <div className=" font-medium flex items-center justify-between">
         Course chapters
         <Button onClick={toggleCreating} variant={"ghost"} className="bg-white">
-          {isEditing ? (
+          {isCreating ? (
             <>Cancel</>
           ) : (
             <>
-              <Pencil className="h-4 w-4 mr-2" />
+              <PlusCircle className="h-4 w-4 mr-2" />
               <span className="md:hidden hidden lg:flex">Edit description</span>
             </>
           )}
