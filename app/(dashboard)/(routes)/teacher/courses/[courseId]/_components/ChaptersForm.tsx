@@ -68,12 +68,12 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
           ) : (
             <>
               <PlusCircle className="h-4 w-4 mr-2" />
-              <span className="md:hidden hidden lg:flex">Edit description</span>
+              <span className="md:hidden hidden lg:flex">Add a chapter</span>
             </>
           )}
         </Button>
       </div>
-      {!isEditing && (
+      {!isCreating && (
         <p
           className={cn(
             "text-sm mt-2",
@@ -83,7 +83,7 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
           {initialData.description || "No description"}
         </p>
       )}
-      {isEditing && (
+      {isCreating && (
         <>
           <Form {...form}>
             <form
@@ -92,7 +92,7 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
             >
               <FormField
                 control={form.control}
-                name="description"
+                name="title"
                 render={({ field }) => (
                   <FormItem>
                     <FormControl>
