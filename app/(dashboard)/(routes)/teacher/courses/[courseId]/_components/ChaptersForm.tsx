@@ -61,7 +61,7 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
   return (
     <div className="mt-6 border bg-[#d0deff] rounded-md p-4">
       <div className=" font-medium flex items-center justify-between">
-        Course description
+        Course chapters
         <Button onClick={toggleCreating} variant={"ghost"} className="bg-white">
           {isEditing ? (
             <>Cancel</>
