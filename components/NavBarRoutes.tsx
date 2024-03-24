@@ -38,13 +38,13 @@ const NavBarRoutes = () => {
       )}
 
       <div className="flex flex-col items-center justify-center">
-        <div className="p-1 bg-[#dedede] rounded-full">
+        <div className="p-2 bg-[#d0deff] rounded-full">
           <UserButton afterSignOutUrl="/" />
         </div>
-        <div className="flex flex-row items-center justify-center">
+        {/* <div className="flex flex-row items-center justify-center">
           <span className="text-sm">Me</span>
           <TiArrowSortedDown />
-        </div>
+        </div> */}
       </div>
     </div>
   );

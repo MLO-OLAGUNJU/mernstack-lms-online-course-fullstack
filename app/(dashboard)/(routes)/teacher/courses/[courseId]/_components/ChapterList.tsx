@@ -8,7 +8,7 @@ import {
   DropResult,
 } from "@hello-pangea/dnd";
 import { cn } from "@/lib/utils";
-import { Grid } from "lucide-react";
+import { Grip } from "lucide-react";
 
 interface ChapterListPops {
   items: Chapter[];
@@ -46,7 +46,7 @@ const ChapterList = ({ onEdit, onReorder, items }: ChapterListPops) => {
                     {(provided) => (
                       <div
                         className={cn(
-                          "flex items-center gap-x-2 bg-slate-200 border-slate-200 border text-slate-700 rounded-md mb-4 text-sm",
+                          "flex items-center gap-x-2 bg-[#fff] border-slate-200 border text-slate-700 rounded-md mb-4 text-sm",
                           chapter.isPublished && "bg-[#d0deff] text-[#3857A1]"
                         )}
                         ref={provided.innerRef}
@@ -60,8 +60,9 @@ const ChapterList = ({ onEdit, onReorder, items }: ChapterListPops) => {
                           )}
                           {...provided.dragHandleProps}
                         >
-                          <Grid />
+                          <Grip className="h-5 w-5" />
                         </div>
+                        {chapter.title}
                       </div>
                     )}
                   </Draggable>
