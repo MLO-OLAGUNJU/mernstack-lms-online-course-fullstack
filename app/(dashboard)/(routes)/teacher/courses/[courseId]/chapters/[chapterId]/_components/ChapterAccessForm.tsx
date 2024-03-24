@@ -21,21 +21,21 @@ import { cn } from "@/lib/utils";
 import { Editor } from "@/components/editor";
 import { Preview } from "@/components/preview";
 
-interface ChapterDescriptionFormProps {
+interface ChapterAccessFormProps {
   initialData: Chapter;
   courseId: string;
   chapterId: string;
 }
 
 const formSchema = z.object({
-  description: z.string().min(1),
+  isFree: z.boolean().default(false),
 });
 
-const ChapterDescriptionForm = ({
+const ChapterAccessForm = ({
   initialData,
   courseId,
   chapterId,
-}: ChapterDescriptionFormProps) => {
+}: ChapterAccessFormProps) => {
   const [isEditing, setIsEditing] = useState(false);
 
   const router = useRouter();
@@ -45,7 +45,8 @@ const ChapterDescriptionForm = ({
   };
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
-    defaultValues: { description: initialData?.description || "" },
+    defaultValues: { isFree: !!initialData.isFree },
+    // defaultValues: { isFree: Boolean(initialData.isFree) },
   });
 
   const { isSubmitting, isValid } = form.formState;
@@ -124,4 +125,4 @@ const ChapterDescriptionForm = ({
   );
 };
 
-export default ChapterDescriptionForm;
+export default ChapterAccessForm;
