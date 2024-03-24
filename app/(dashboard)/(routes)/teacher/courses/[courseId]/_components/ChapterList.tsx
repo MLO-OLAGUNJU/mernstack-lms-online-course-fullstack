@@ -30,6 +30,13 @@ const ChapterList = ({ onEdit, onReorder, items }: ChapterListPops) => {
 
   const onDragEnd = (result: DropResult) => {
     if (!result.destination) return;
+
+    const items = Array.from(chapters);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+
+    const startIndex = Math.min(result.source.index, result.destination.index);
+    const endIndex = Math.max(result.source.index, result.destination.index);
   };
 
   if (!isMounted) {
