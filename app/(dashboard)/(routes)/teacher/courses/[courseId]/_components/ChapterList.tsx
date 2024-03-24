@@ -9,6 +9,7 @@ import {
 } from "@hello-pangea/dnd";
 import { cn } from "@/lib/utils";
 import { Grip } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
 
 interface ChapterListPops {
   items: Chapter[];
@@ -63,6 +64,9 @@ const ChapterList = ({ onEdit, onReorder, items }: ChapterListPops) => {
                           <Grip className="h-5 w-5" />
                         </div>
                         {chapter.title}
+                        <div className="ml-auto pr-2 flex items-center gap-x-2">
+                          {chapter.isFree && <Badge>Free</Badge>}
+                        </div>
                       </div>
                     )}
                   </Draggable>
