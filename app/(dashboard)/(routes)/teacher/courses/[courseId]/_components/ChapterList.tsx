@@ -8,6 +8,7 @@ import {
   DropResult,
 } from "@hello-pangea/dnd";
 import { cn } from "@/lib/utils";
+import { Grid } from "lucide-react";
 
 interface ChapterListPops {
   items: Chapter[];
@@ -50,7 +51,18 @@ const ChapterList = ({ onEdit, onReorder, items }: ChapterListPops) => {
                         )}
                         ref={provided.innerRef}
                         {...provided.draggableProps}
-                      ></div>
+                      >
+                        <div
+                          className={cn(
+                            "px-2 py-3 border-r-slate-200 hover:bg-slate-300 rounded-l-md transition",
+                            chapter.isPublished &&
+                              "border-r-[#d0deff] hover:bg-[#d0deff]"
+                          )}
+                          {...provided.dragHandleProps}
+                        >
+                          <Grid />
+                        </div>
+                      </div>
                     )}
                   </Draggable>
                 </>
