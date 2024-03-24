@@ -10,10 +10,14 @@ interface ChapterListPops {
 
 const ChapterList = ({ onEdit, onReorder, items }: ChapterListPops) => {
   const [isMounted, setIsMounted] = useState(false);
-  const [chapters, setChapters] = useState(false);
+  const [chapters, setChapters] = useState(items);
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  useEffect(() => {
+    setChapters(items);
+  }, [items]);
 
   if (!isMounted) {
     return null;
