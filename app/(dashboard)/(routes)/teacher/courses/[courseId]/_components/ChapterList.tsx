@@ -1,6 +1,6 @@
 "use client";
 import { Chapter } from "@prisma/client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 interface ChapterListPops {
   items: Chapter[];
@@ -9,6 +9,15 @@ interface ChapterListPops {
 }
 
 const ChapterList = ({ onEdit, onReorder, items }: ChapterListPops) => {
+  const [isMounted, setIsMounted] = useState(false);
+  const [chapters, setChapters] = useState(false);
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  if (!isMounted) {
+    return null;
+  }
   return <div>ChapterList</div>;
 };
 
