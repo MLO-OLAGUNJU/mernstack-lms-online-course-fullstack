@@ -13,7 +13,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { Pencil, PlusCircle } from "lucide-react";
+import { Info, Pencil, PlusCircle } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
@@ -127,9 +127,12 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
       )}
 
       {!isCreating && (
-        <p className="text-xs text-muted-foreground mt-4">
-          Drag and drop to reorder the chapters
-        </p>
+        <div className="flex items-center gap-2 mt-4">
+          <Info className="text-xs text-muted-foreground" />
+          <p className="text-xs text-muted-foreground italic">
+            Drag and drop to reorder the chapters
+          </p>
+        </div>
       )}
     </div>
   );
