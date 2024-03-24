@@ -91,7 +91,7 @@ const ChapterIdpage = async ({
 
           <div>
             <div className="flex items-center gap-x-2">
-              <IconBadges icon={Eye} />
+              <IconBadges size={"default"} variant={"default"} icon={Eye} />
               <h2 className="text-xl">Access Settings</h2>
             </div>
             <ChapterAccessForm

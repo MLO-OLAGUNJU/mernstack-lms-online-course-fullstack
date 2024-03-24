@@ -8,18 +8,20 @@ import { useForm } from "react-hook-form";
 import {
   Form,
   FormControl,
+  FormDescription,
   FormField,
   FormItem,
   FormMessage,
 } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { Pencil } from "lucide-react";
+import { InfoIcon, Pencil } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Editor } from "@/components/editor";
 import { Preview } from "@/components/preview";
+import { Checkbox } from "@/components/ui/checkbox";
 
 interface ChapterAccessFormProps {
   initialData: Chapter;
@@ -68,14 +70,14 @@ const ChapterAccessForm = ({
   return (
     <div className="mt-6 border bg-[#d0deff] rounded-md p-4">
       <div className=" font-medium flex items-center justify-between">
-        Chapter description
+        Chapter access settings
         <Button onClick={toggleEdit} variant={"ghost"} className="bg-white">
           {isEditing ? (
             <>Cancel</>
           ) : (
             <>
               <Pencil className="h-4 w-4 mr-2" />
-              <span className="md:hidden hidden lg:flex">Edit description</span>
+              <span className="md:hidden hidden lg:flex">Edit access</span>
             </>
           )}
         </Button>
@@ -102,13 +104,23 @@ const ChapterAccessForm = ({
             >
               <FormField
                 control={form.control}
-                name="description"
+                name="isFree"
                 render={({ field }) => (
-                  <FormItem>
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
                     <FormControl>
-                      <Editor {...field} />
+                      <InfoIcon />
+                      <Checkbox
+                        checked={field.value}
+                        onCheckedChange={field.onChange}
+                      />
                     </FormControl>
-                    <FormMessage />
+
+                    <div className="space-y-1 leading-none">
+                      <FormDescription>
+                        Tick this field to make current chapter available for
+                        free for preview
+                      </FormDescription>
+                    </div>
                   </FormItem>
                 )}
               />
