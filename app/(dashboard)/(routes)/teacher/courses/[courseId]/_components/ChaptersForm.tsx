@@ -19,6 +19,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
+import ChapterList from "./ChapterList";
 
 interface ChaptersFormProps {
   initialData: Course & {
@@ -116,6 +117,11 @@ const ChaptersForm = ({ initialData, courseId }: ChaptersFormProps) => {
             )}
           >
             {!initialData.chapters.length && "No chapters"}
+            <ChapterList
+              onEdit={() => {}}
+              onReorder={() => {}}
+              items={initialData.chapters || []}
+            />
           </div>
         </>
       )}
