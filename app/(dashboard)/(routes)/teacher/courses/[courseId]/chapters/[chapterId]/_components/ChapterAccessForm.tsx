@@ -85,7 +85,7 @@ const ChapterAccessForm = ({
       {!isEditing && (
         <p
           className={cn(
-            "text-sm mt-2",
+            "text-sm mt-2 italic",
             !initialData.isFree && "text-slate-600 italic"
           )}
         >
@@ -107,18 +107,18 @@ const ChapterAccessForm = ({
                 control={form.control}
                 name="isFree"
                 render={({ field }) => (
-                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border p-4">
+                  <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border bg-white  p-4">
                     <FormControl>
-                      <InfoIcon />
                       <Checkbox
+                        className="bg-white text-white"
                         checked={field.value}
                         onCheckedChange={field.onChange}
                       />
                     </FormControl>
 
                     <div className="space-y-1 leading-none">
-                      <FormDescription>
-                        Tick this field to make current chapter available for
+                      <FormDescription className="text-black">
+                        Mark this field to make current chapter available for
                         free for preview
                       </FormDescription>
                     </div>
