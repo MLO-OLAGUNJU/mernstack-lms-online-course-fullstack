@@ -8,8 +8,8 @@ import { Pencil, PlusCircle, Video } from "lucide-react";
 import toast from "react-hot-toast";
 import axios from "axios";
 import { useRouter } from "next/navigation";
-import Image from "next/image";
 import { FileUpload } from "@/components/fileUpload";
+import MuxPlayer from "@mux/mux-player-react";
 
 interface ChapterVideoFormProps {
   initialData: Chapter & {
@@ -53,7 +53,7 @@ const ChapterVideoForm = ({
   return (
     <div className="mt-6 border bg-[#d0deff] rounded-md p-4">
       <div className=" font-medium flex items-center justify-between">
-        Course image
+        Chapter video
         <Button onClick={toggleEdit} variant={"ghost"} className="bg-white">
           {isEditing && <>Cancel</>}
           {!isEditing && !initialData.videoUrl && (
@@ -79,7 +79,9 @@ const ChapterVideoForm = ({
           </div>
         ) : (
           <>
-            <div className="relative aspect-video mt-2">Video Uplaoded1</div>
+            <div className="relative aspect-video mt-2">
+              <MuxPlayer playbackId={initialData?.muxData?.playbackId || ""} />
+            </div>
           </>
         ))}
       {isEditing && (
