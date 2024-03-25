@@ -31,12 +31,12 @@ export const ChapterActions = ({
         await axios.patch(
           `/api/courses/${courseId}/chapters/${chapterId}/unpublish`
         );
-        toast.success("Chapter unpublished");
+        toast.success("Chapter has been succcessfully unpublished");
       } else {
         await axios.patch(
           `/api/courses/${courseId}/chapters/${chapterId}/publish`
         );
-        toast.success("Chapter published");
+        toast.success("Chapter has been succcessfully published");
       }
 
       router.refresh();
@@ -66,15 +66,15 @@ export const ChapterActions = ({
     <div className="flex items-center gap-x-2">
       <Button
         onClick={() => {}}
-        disabled={disabled}
+        disabled={disabled || isLoading}
         variant="outline"
         size={"sm"}
       >
         {isPublished ? "Published" : "Publish"}
       </Button>
 
-      <ConfirmModal onConfirm={() => {}}>
-        <Button size={"sm"}>
+      <ConfirmModal onConfirm={onDelete}>
+        <Button size={"sm"} disabled={isLoading}>
           <Trash className="h-4 w-4" />
         </Button>
       </ConfirmModal>
