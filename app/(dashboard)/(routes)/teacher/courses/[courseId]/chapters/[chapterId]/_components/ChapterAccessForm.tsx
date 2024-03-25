@@ -83,17 +83,18 @@ const ChapterAccessForm = ({
         </Button>
       </div>
       {!isEditing && (
-        <div
+        <p
           className={cn(
             "text-sm mt-2",
-            !initialData.description && "text-slate-600 italic"
+            !initialData.isFree && "text-slate-600 italic"
           )}
         >
-          {!initialData.description && "No description"}
-          {initialData.description && (
-            <Preview value={initialData.description} />
+          {initialData.isFree ? (
+            <>This chapter is free for preview.</>
+          ) : (
+            <>This chapter is not free.</>
           )}
-        </div>
+        </p>
       )}
       {isEditing && (
         <>
