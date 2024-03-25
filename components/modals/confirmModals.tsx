@@ -28,7 +28,7 @@ export const ConfirmModal = ({ children, onConfirm }: ConfirmModalProps) => {
             This action cannot be undone.
           </AlertDialogDescription>
         </AlertDialogHeader>
-        <AlertDialogFooter>
+        <AlertDialogFooter className=" grid-cols-1 md:grid-cols-2 gap-2">
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction onClick={onConfirm}>Continue</AlertDialogAction>
         </AlertDialogFooter>

@@ -5,6 +5,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { Trash } from "lucide-react";
+import { ConfirmModal } from "@/components/modals/confirmModals";
 
 interface ChapterActionsProps {
   disabled: boolean;
@@ -71,9 +72,12 @@ export const ChapterActions = ({
       >
         {isPublished ? "Published" : "Publish"}
       </Button>
-      <Button onClick={() => {}} size={"sm"}>
-        <Trash className="h-4 w-4" />
-      </Button>
+
+      <ConfirmModal onConfirm={() => {}}>
+        <Button size={"sm"}>
+          <Trash className="h-4 w-4" />
+        </Button>
+      </ConfirmModal>
     </div>
   );
 };
