@@ -10,7 +10,6 @@ import ChapterDescriptionForm from "./_components/ChapterDescriptionForm";
 import ChapterAccessForm from "./_components/ChapterAccessForm";
 import ChapterVideoForm from "./_components/ChapterVideoForm";
 import { Banner } from "@/components/banner";
-import { boolean } from "zod";
 import ChapterActions from "./_components/ChapterActions";
 
 const ChapterIdpage = async ({
@@ -55,7 +54,7 @@ const ChapterIdpage = async ({
       {!chapter.isPublished && (
         <Banner
           variant={"warning"}
-          label="This chapter is not yet published and will not be visible in the course until published"
+          label={`This chapter ${chapter.title} is not published. It will not visible to the students.`}
         />
       )}
       <div className="p-6">
