@@ -71,7 +71,7 @@ export const ChapterActions = ({
         variant="outline"
         size={"sm"}
       >
-        {isPublished ? "Published" : "Publish"}
+        {isPublished ? "Unpublish" : "Publish"}
       </Button>
 
       <ConfirmModal onConfirm={onDelete}>
