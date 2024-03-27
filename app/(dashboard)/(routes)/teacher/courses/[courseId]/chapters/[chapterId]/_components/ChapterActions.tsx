@@ -31,12 +31,12 @@ export const ChapterActions = ({
         await axios.patch(
           `/api/courses/${courseId}/chapters/${chapterId}/unpublish`
         );
-        toast.success("Chapter has been succcessfully unpublished");
+        toast.success("Chapter succcessfully unpublished");
       } else {
         await axios.patch(
           `/api/courses/${courseId}/chapters/${chapterId}/publish`
         );
-        toast.success("Chapter has been succcessfully published");
+        toast.success("Chapter succcessfully published");
       }
 
       router.refresh();
@@ -62,10 +62,11 @@ export const ChapterActions = ({
       setIsLoading(false);
     }
   };
+
   return (
     <div className="flex items-center gap-x-2">
       <Button
-        onClick={() => {}}
+        onClick={onClick}
         disabled={disabled || isLoading}
         variant="outline"
         size={"sm"}
