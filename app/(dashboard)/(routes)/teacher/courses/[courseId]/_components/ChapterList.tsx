@@ -70,7 +70,8 @@ const ChapterList = ({ onEdit, onReorder, items }: ChapterListPops) => {
                       <div
                         className={cn(
                           "flex items-center gap-x-2 bg-[#fff] border-slate-200 border text-slate-700 rounded-md mb-4 text-sm",
-                          chapter.isPublished && "bg-[#d0deff] text-[#3857A1]"
+                          chapter.isPublished &&
+                            " bg-[#d0deff] border-[#3857A1] border text-[#3857A1]"
                         )}
                         ref={provided.innerRef}
                         {...provided.draggableProps}
