@@ -15,7 +15,7 @@ const NavBarRoutes = () => {
   const isPlayerPage = pathname?.includes("/chapter");
 
   return (
-    <div className="flex items-center gap-x-5 ml-auto">
+    <div className="flex items-center gap-x-3 ml-auto">
       {isTeacherPage || isPlayerPage ? (
         <Link
           href={"/"}
@@ -38,7 +38,7 @@ const NavBarRoutes = () => {
       )}
 
       <div className="flex flex-col items-center justify-center">
-        <div className="p-2 bg-[#d0deff] rounded-full">
+        <div className="p-1 bg-[#d0deff] rounded-full">
           <UserButton afterSignOutUrl="/" />
         </div>
         {/* <div className="flex flex-row items-center justify-center">
