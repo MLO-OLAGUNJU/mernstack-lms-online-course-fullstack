@@ -83,7 +83,11 @@ const Page = () => {
             />
             <div className="flex items-center gap-x-2">
               <Link href={"/"}>
-                <Button type="button" variant={"ghost"}>
+                <Button
+                  type="button"
+                  variant={"ghost"}
+                  className="border-[1px] border-solid border-black"
+                >
                   Cancel
                 </Button>
               </Link>
