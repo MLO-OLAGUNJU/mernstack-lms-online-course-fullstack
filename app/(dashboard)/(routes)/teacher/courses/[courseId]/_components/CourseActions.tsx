@@ -50,7 +50,7 @@ export const CourseActions = ({
 
       await axios.delete(`/api/courses/${courseId}`);
 
-      toast.success("Course deleted");
+      toast.success("Course succcessfully deleted");
       router.refresh();
       router.push(`/teacher/courses`);
     } catch {
