@@ -4,7 +4,7 @@ import NavBar from "./_components/NavBar";
 
 const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div className=" h-full select-none bg-[#f9f9f9]">
+    <div className=" h-full select-none bg-[#f4f3f3]">
       <div className="h-[80px] md:pl-56 fixed inset-y-0 w-full z-50">
         <NavBar />
       </div>
