@@ -68,7 +68,7 @@ export const CourseActions = ({
         variant="outline"
         size={"sm"}
       >
-        {isPublished ? "Unpublish" : "Publish"}
+        {isPublished ? "Unpublish Course" : "Publish Course"}
       </Button>
 
       <ConfirmModal onConfirm={onDelete}>
