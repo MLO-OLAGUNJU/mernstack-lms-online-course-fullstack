@@ -5,6 +5,10 @@ import { redirect } from "next/navigation";
 import { db } from "@/lib/db";
 import { CourseProgress } from "@/components/CourseProgress";
 import { CourseSidebarItem } from "./course-sidebar-item";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import { MdExitToApp } from "react-icons/md";
+import { ArrowLeft } from "lucide-react";
 
 interface CourseSidebarProps {
   course: Course & {
@@ -36,7 +40,13 @@ export const CourseSidebar = async ({
 
   return (
     <div className=" h-full border-r flex flex-col overflow-y-auto bg-white shadow-sm">
-      <div className="p-7 flex flex-col bg-[#3857A1] text-white">
+      <div className="px-7 py-5 gap-3 flex flex-col bg-[#3857A1] text-white">
+        <Link href={"/search"}>
+          <Button className="flex gap-5">
+            <ArrowLeft />
+          </Button>
+        </Link>
+
         <h1 className="font-semibold text-lg">{course.title}</h1>
         {purchase && (
           <div className="mt-10">
