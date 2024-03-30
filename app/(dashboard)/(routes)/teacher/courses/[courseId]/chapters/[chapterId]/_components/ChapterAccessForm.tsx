@@ -90,7 +90,7 @@ const ChapterAccessForm = ({
           )}
         >
           {initialData.isFree ? (
-            <>This chapter is free for preview.</>
+            <>This chapter is free.</>
           ) : (
             <>This chapter is not free.</>
           )}
@@ -119,7 +119,7 @@ const ChapterAccessForm = ({
                     <div className="space-y-1 leading-none">
                       <FormDescription className="text-black">
                         Mark this field to make current chapter available for
-                        free for preview
+                        free
                       </FormDescription>
                     </div>
                   </FormItem>
