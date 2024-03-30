@@ -40,16 +40,18 @@ export const CourseSidebar = async ({
 
   return (
     <div className=" h-full border-r flex flex-col overflow-y-auto bg-[#fff] shadow-sm">
-      <div className="px-7 py-5 gap-3 flex flex-col bg-[#3857A1] text-white">
-        <Link href={"/search"}>
-          <Button className="flex gap-5">
-            <ArrowLeft />
-          </Button>
-        </Link>
+      <div className=" pb-5 gap-3 flex flex-col text-white">
+        <div className="pt-5 px-7 flex flex-col gap-y-5 py-10 bg-[#3857A1]">
+          <Link href={"/search"}>
+            <Button className="flex gap-5">
+              <ArrowLeft />
+            </Button>
+          </Link>
 
-        <h1 className="font-semibold text-lg">{course.title}</h1>
+          <h1 className="font-semibold text-lg">{course.title}</h1>
+        </div>
         {purchase && (
-          <div className="mt-10">
+          <div className="mt-5 px-7">
             <CourseProgress variant="success" value={progressCount} />
           </div>
         )}
