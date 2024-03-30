@@ -47,7 +47,7 @@ export const VideoPlayer = ({
           confetti.onOpen();
         }
 
-        toast.success("Progress updated");
+        toast.success("Course progress updated");
         router.refresh();
 
         if (nextChapterId) {

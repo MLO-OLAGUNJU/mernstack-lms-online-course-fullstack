@@ -23,7 +23,7 @@ const NavBarRoutes = () => {
         </div>
       )}
       <div className="flex items-center gap-x-3 ml-auto">
-        {isTeacherPage || isPlayerPage ? (
+        {isTeacherPage ? (
           <Link
             href={"/"}
             className="mr-[10px] rounded-md border-1 bg-[#d0deff] border-solid"
@@ -31,7 +31,7 @@ const NavBarRoutes = () => {
             <Button size="sm" variant="ghost">
               <LogOut className="h-4 w-4 mr-2" />
               <span className="md:hidden hidden lg:flex">
-                Exit Teacher mode
+                Logout Instructor
               </span>
             </Button>
           </Link>
@@ -41,7 +41,7 @@ const NavBarRoutes = () => {
             className="rounded-md border-1 bg-[#d0deff] border-solid"
           >
             <Button size="sm" variant="ghost">
-              Teacher mode
+              Instructor mode
             </Button>
           </Link>
         )}
