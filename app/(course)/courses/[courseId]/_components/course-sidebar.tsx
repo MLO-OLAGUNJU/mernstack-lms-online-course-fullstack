@@ -39,7 +39,7 @@ export const CourseSidebar = async ({
   });
 
   return (
-    <div className=" h-full border-r flex flex-col overflow-y-auto bg-white shadow-sm">
+    <div className=" h-full border-r flex flex-col overflow-y-auto bg-[#fff] shadow-sm">
       <div className="px-7 py-5 gap-3 flex flex-col bg-[#3857A1] text-white">
         <Link href={"/search"}>
           <Button className="flex gap-5">
@@ -54,7 +54,7 @@ export const CourseSidebar = async ({
           </div>
         )}
       </div>
-      <div className="flex flex-col w-full">
+      <div className="flex flex-col w-full bg-white ">
         {course.chapters.map((chapter) => (
           <CourseSidebarItem
             key={chapter.id}

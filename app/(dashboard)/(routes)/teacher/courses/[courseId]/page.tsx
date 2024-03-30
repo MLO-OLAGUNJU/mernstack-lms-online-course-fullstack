@@ -80,7 +80,7 @@ const CourseIdPage = async ({ params }: { params: { courseId: string } }) => {
           label={`Your course '${course.title}' is not published. It will not be visible to the students.`}
         />
       )}
-      <div className="p-6">
+      <div className="p-6 h-full bg-[#f4f3f3]">
         <div className="flex items-center justify-between">
           <div className=" flex flex-col gap-y-2">
             <h1 className="text-2xl font-bold">Course setup</h1>

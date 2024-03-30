@@ -35,7 +35,7 @@ export const CourseSidebarItem = ({
       onClick={onClick}
       type="button"
       className={cn(
-        "flex items-center gap-x-2 text-slate-500 text-sm font-[500] w-full pl-6 transition-all hover:text-slate-600 hover:bg-slate-300/20",
+        "flex items-center shadow-md gap-x-2 text-slate-500 text-sm font-[500] w-full pl-6 transition-all hover:text-slate-600 hover:bg-slate-300/20",
         isActive &&
           "text-[#3857A1] bg-[#d0deff] hover:bg-[#d0deff] hover:text-[#3857A1]",
         isCompleted && "text-emerald-700 hover:text-emerald-700",
